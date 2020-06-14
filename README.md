@@ -22,6 +22,10 @@ Essencialmente o que foi usado foi o Dlib, open-cv, googlemaps e o kivy, podendo
  
  <code> conda env create -f environment.yml </code>
  
+ Após instalado as dependência é só rodar o arquivo <code>StaySafeApp.py</code>:
+ 
+ <code> python StaySafeApp.py</code>
+ 
  ## References
  
 - [Apresentação Hackathon CCR - Live 09-06-2020:](https://docs.google.com/presentation/d/1Tq6isbnxlFaBfsNL5GHMRTTs1ilzb15JlrfnPtUhBFw/edit#slide=id.p5)
