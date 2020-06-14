@@ -8,6 +8,11 @@ Todo o app tem como base a linguagem python sendo o reconhecimento facial feito 
 
 ## Requisitos
 
+Para as consultas na API do Google Maps, é necessário obter uma chave de acesso: 
+- Acesse https://cloud.google.com/maps-platform?hl=pt-br para adquirir uma chave de acesso
+- Selecione todos produtos disponíveis na API (Maps, Routes e Places)
+- Após o cadastramento, crie dentro da pasta o arquivo <code> api_key.txt <code> somente com a chave de acesso
+
 Essencialmente o que foi usado foi o Dlib, open-cv, googlemaps e o kivy, podendo ser instalados via Anaconda:
 
 <code> conda install -c conda-forge opencv </code>
