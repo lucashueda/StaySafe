@@ -11,8 +11,11 @@ Todo o app tem como base a linguagem python sendo o reconhecimento facial feito 
 Essencialmente o que foi usado foi o Dlib, open-cv, googlemaps e o kivy, podendo ser instalados via Anaconda:
 
 <code> conda install -c conda-forge opencv </code>
+
 <code> conda install -c conda-forge dlib </code>
+
 <code> conda install -c conda-forge kivy </code>
+
  <code> conda install -c conda-forge googlemaps </code>
  
  Também consta aqui o arquivos <code>environment.yaml</code> que já cria o env com as libs, para usar use o comando:
@@ -22,13 +25,10 @@ Essencialmente o que foi usado foi o Dlib, open-cv, googlemaps e o kivy, podendo
  ## References
  
 - [Apresentação Hackathon CCR - Live 09-06-2020:](https://docs.google.com/presentation/d/1Tq6isbnxlFaBfsNL5GHMRTTs1ilzb15JlrfnPtUhBFw/edit#slide=id.p5)
-- (CNT Acidentes Rodoviários)[https://cdn.cnt.org.br/diretorioVirtualPrd/34e78e55-5b3e-4355-9ebc-acf1b8e7b4a4.pdf]
-Mais de 16% dos caminhoneiros dirigem no limite de sonolência: https://g1.globo.com/sp/sao-paulo/noticia/2019/05/31/mais-de-16percent-dos-caminhoneiros-dirigem-no-limite-de-sonolencia-diz-pesquisa.ghtml
-Falta de sono já causou algum tipo de acidente para 23% dos caminhoneiros: http://g1.globo.com/bom-dia-brasil/noticia/2015/09/falta-de-sono-ja-causou-algum-tipo-de-acidente-para-23-dos-caminhoneiros.html
-Saúde: Estudo inédito revela que é maior o risco de acidentes envolvendo caminhoneiros: https://www.saopaulo.sp.gov.br/eventos/saude-estudo-inedito-revela-que-e-maior-o-risco-de-acidentes-envolvendo-caminhoneiros/
-Detecção de piscar de olhos com python:
-https://www.pyimagesearch.com/2017/04/24/eye-blink-detection-opencv-python-dlib/
-Detecção de sonolência usando EAR e ECR:
-https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3356401
-Tutorial Kivy para desenvolvimento de interface gráfica em python:
-https://www.youtube.com/watch?v=WiyF3VsL5dY&list=PLsMpSZTgkF5AV1FmALMgW8W-TvrfR3nrs
+- [CNT Acidentes Rodoviários](https://cdn.cnt.org.br/diretorioVirtualPrd/34e78e55-5b3e-4355-9ebc-acf1b8e7b4a4.pdf)
+- [Mais de 16% dos caminhoneiros dirigem no limite de sonolência](https://g1.globo.com/sp/sao-paulo/noticia/2019/05/31/mais-de-16percent-dos-caminhoneiros-dirigem-no-limite-de-sonolencia-diz-pesquisa.ghtml)
+- [Falta de sono já causou algum tipo de acidente para 23% dos caminhoneiros](http://g1.globo.com/bom-dia-brasil/noticia/2015/09/falta-de-sono-ja-causou-algum-tipo-de-acidente-para-23-dos-caminhoneiros.html)
+- [Saúde: Estudo inédito revela que é maior o risco de acidentes envolvendo caminhoneiros](https://www.saopaulo.sp.gov.br/eventos/saude-estudo-inedito-revela-que-e-maior-o-risco-de-acidentes-envolvendo-caminhoneiros/)
+- [Detecção de piscar de olhos com python](https://www.pyimagesearch.com/2017/04/24/eye-blink-detection-opencv-python-dlib/)
+- [Detecção de sonolência usando EAR e ECR](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3356401)
+- [Tutorial Kivy para desenvolvimento de interface gráfica em python](https://www.youtube.com/watch?v=WiyF3VsL5dY&list=PLsMpSZTgkF5AV1FmALMgW8W-TvrfR3nrs)
