@@ -1,0 +1,103 @@
+#:import utils kivy.utils
+<SM>:
+  Screen:
+    name: 'menu'
+    bgcolor: .9,.55,.141,1
+    BoxLayout: 
+      padding: 10
+      spacing: 20
+      orientation: 'vertical'
+      Image:
+        source: 'logo.png'
+        size_hint_y: None
+        height: 480
+
+      Button:
+        background_normal: 'botao_monitorar.png'
+        border: 0,0,0,0
+        on_release: root.current = 'camera_facial'
+        width: '40sp'
+
+      Button:
+        background_normal: 'botao_parada.png'
+        border: 0,0,0,0
+        width: '40sp'
+
+        on_release: root.current = 'safe_places'
+
+  FaceCam:
+    name: 'camera_facial'
+
+  Places:
+    name: 'safe_places'
+
+  Map:
+    name: 'map'
+
+<FaceCam>:
+  BoxLayout:
+    orientation: 'vertical'
+    spacing: 20
+    padding: 10
+
+    ActionBar:
+      ActionView:
+        ActionPrevious:
+          title: 'Postos'
+          on_release: app.root.current = 'safe_places'
+        ActionButton:
+          text: 'Menu'
+          on_release: app.root.current = 'menu'
+    KivyCamera:
+      id: fcam
+      height: 450
+      allow_stretch: True
+      keep_ratio: False
+      size_hint_y: None
+      size_hint_x: None
+      width: 500
+      height: 500
+    Button:
+      background_normal: 'botao_play_pause.png'
+      border: 0,0,0,0
+      width: 50
+      height: 100
+      allow_stretch: False
+      on_release: fcam.start()
+
+<Places>:
+  BoxLayout:
+    ortientation: 'vertical'
+    ScrollView:
+      id: scrollview
+      BoxLayout:
+        id: scroll
+        spacing: 20
+        padding: 10
+        id: safe_places
+        orientation: 'vertical'
+        size_hint_y: None
+        height: self.minimum_height
+      
+
+<Map>:
+  BoxLayout:
+    orientation: 'vertical'
+
+    ActionBar:
+      ActionView:
+        ActionPrevious:
+          title: 'Postos'
+          on_release: app.root.current = 'safe_places'
+        ActionButton:
+          text: 'Menu'
+          on_release: app.root.current = 'menu'
+
+    Image:
+      id: choose_map
+      allow_stretch: True
+      keep_ratio: False
+      size_hint_x: None
+      width: 500
+      height: 530
+      source: None

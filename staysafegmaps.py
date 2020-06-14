@@ -28,7 +28,7 @@ class StaySafe_places:
             type="gas_station",
             language="pt-BR",
             open_now=True,
-            # radius=max_radius
+            # radius=max_radius,
             rank_by='distance'
         )
         if len(places["results"]) > max_results:
@@ -69,9 +69,9 @@ class StaySafe_places:
                 place_id=func_treat(place, "place_id"),
                 polyline=func_treat(func_treat(general_info, "overview_polyline"),"points")
             )
-        places_json_ordered = {key: value for key, value in sorted(places_json.items(), key=lambda item: float(item["distance"].split()[0])}
-        return places_json_ordered
-    
+
+        return places_json
+
     def get_map(self, place_info, file_path):
         g = geo_location()
         geo_latlng = str(g.latlng)[1:-1]

@@ -66,6 +66,8 @@ captura = cv2.VideoCapture(0)
  
 count = 0
 
+initial_recognition = True
+init_frames = 0
 p = "shape_predictor_68_face_landmarks.dat"
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(p)
