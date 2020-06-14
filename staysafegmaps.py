@@ -1,29 +1,41 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# Imports
+# ## Imports
+
+# In[ ]:
+
+
 import googlemaps
 from datetime import datetime
 import requests
 
 
-# Support functions
+# ## Support functions
+
+# In[ ]:
+
+
 def geo_location():
     import geocoder
     g = geocoder.ip("me")
     return g
 
-# Google Places recommendation Class
+
+# ## Beginning Code
+
+# ### Google Place Search Class
+
+# In[ ]:
+
 
 with open('api_key.txt','r') as file:
     api_key = file.read()
-
 
 class StaySafe_places:
     def __init__(self):
         self.geo = geo_location()
         self.g_maps = googlemaps.Client(key=api_key)
-        self.gmaps = gmaps.configure(api_key=api_key)
         self.map_url = "https://maps.googleapis.com/maps/api/staticmap?"
 
     def get_places_nearby(self, max_results, max_radius):
@@ -32,7 +44,8 @@ class StaySafe_places:
             type="gas_station",
             language="pt-BR",
             open_now=True,
-            radius=max_radius,
+            # radius=max_radius,
+            rank_by='distance'
         )
         if len(places["results"]) > max_results:
             return places["results"][0:max_results]
@@ -57,18 +70,20 @@ class StaySafe_places:
         for place in places_nearby:
             general_info = self.get_directions_info(destiny_address=place["vicinity"])
             directions_info = general_info["legs"][0]
+            
+            func_treat = (lambda place, key, default="": place[key] if key in place.keys() else default)
 
             places_json[place["name"]] = dict(
-                address=place["vicinity"],
+                address=func_treat(place, "vicinity"),
                 coord=(
                     place["geometry"]["location"]["lat"],
                     place["geometry"]["location"]["lng"],
                 ),
-                rating=place["rating"],
-                distance=directions_info["distance"]["text"],
-                travel_time=directions_info["duration"]["text"],
-                place_id=place["place_id"],
-                polyline=general_info["overview_polyline"]["points"],
+                rating=func_treat(place, "rating", "Sem nota"),
+                distance=func_treat(func_treat(directions_info, "distance"),"text"),
+                travel_time=func_treat(func_treat(directions_info, "duration"),"text"),
+                place_id=func_treat(place, "place_id"),
+                polyline=func_treat(func_treat(general_info, "overview_polyline"),"points")
             )
 
         return places_json
@@ -94,14 +109,17 @@ class StaySafe_places:
             image.write(response.content)
 
 
-# StaySafe_places Tests
+# ##  Class Tests
+
+# In[ ]:
+
 
 if __name__ == '__main__':
     test = StaySafe_places()
     places = test.get_places_rec(max_results=1,max_radius=10000)
-    print(places)
     for i in places:
         file_path = i+'.png'
         place = places[i]
+        print(place)
         test.get_map(place_info=place, file_path=file_path)
 
