@@ -5,29 +5,24 @@
     bgcolor: .9,.55,.141,1
     BoxLayout: 
       padding: 10
-      spacing: 50
+      spacing: 20
       orientation: 'vertical'
       Image:
         source: 'logo.png'
         size_hint_y: None
-        height: 400
+        height: 480
 
       Button:
-        background_normal: ''
-        background_color: utils.get_color_from_hex('#111b3e')
-        
-        text: 'Monitorar viagem'
-        font_size: 42
+        background_normal: 'botao_monitorar.png'
+        border: 0,0,0,0
         on_release: root.current = 'camera_facial'
-        height: 150
-
+        width: '40sp'
 
       Button:
-        background_normal: ''
-        background_color: utils.get_color_from_hex('#111b3e')
-        font_size: 30
-        text: 'Buscar paradas'
-        height: 100
+        background_normal: 'botao_parada.png'
+        border: 0,0,0,0
+        width: '40sp'
+
         on_release: root.current = 'safe_places'
 
   FaceCam:
@@ -42,6 +37,9 @@
 <FaceCam>:
   BoxLayout:
     orientation: 'vertical'
+    spacing: 20
+    padding: 10
+
     ActionBar:
       ActionView:
         ActionPrevious:
@@ -52,17 +50,19 @@
           on_release: app.root.current = 'menu'
     KivyCamera:
       id: fcam
-      height: 500
+      height: 450
       allow_stretch: True
       keep_ratio: False
       size_hint_y: None
       size_hint_x: None
       width: 500
-      height: 560
+      height: 500
     Button:
-      background_normal: ''
-      background_color: utils.get_color_from_hex('#14292b')
-      text: ''
+      background_normal: 'botao_play_pause.png'
+      border: 0,0,0,0
+      width: 50
+      height: 100
+      allow_stretch: False
       on_release: fcam.start()
 
 <Places>:

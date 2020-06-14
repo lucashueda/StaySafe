@@ -109,11 +109,11 @@ class KivyCamera(Image):
         box = BoxLayout(orientation = 'vertical', padding = 20, spacing= 30)
         botoes = BoxLayout()
 
-        self.pop = Popup(title="Voce parece estar com sono, vamos descansar?", content= box, size_hint = (None, None), size = (400,300))
+        self.pop = Popup(title="Vamos descansar?", content= box, size_hint = (None, None), size = (400,300))
 
-        sim = Button(text='Sim, preciso descansar')
+        sim = Button(text='Descansar', font_size=28)
         sim.bind(on_release = self.on_stop)
-        nao = Button(text='Nao, estou bem')
+        nao = Button(text='Continuar\nviagem', font_size=28)
         # nao.bind(on_release =self.ispop_false)
         nao.bind(on_release = self.ispop_false)
 
@@ -251,17 +251,21 @@ class Places(Screen):
 
       keys = []
       distances = []
+      ratings = []
+      time = []
       for key in places.keys():
         keys.append(key)
         distances.append(float(places[key]['distance'][:3]))
+        time.append(places[key]['travel_time'])
 
-      sorted_df = pd.DataFrame({'chaves': keys, 'd': distances})
+      sorted_df = pd.DataFrame({'chaves': keys, 'd': distances, 'time': time})
       
       sorted_df = sorted_df.sort_values(by='d', ascending=True)
 
       for i in range(sorted_df.shape[0]):
         # print(places)
-        button = Button(text=sorted_df.chaves.values[i][:30] + ' | ' + sorted_df.d.values[i].astype(str) + ' km', font_size = 25, 
+        button = Button(text= sorted_df.time.values[i] + 55*' '  + 'rating' + '\n' + \
+                        sorted_df.chaves.values[i][:30] + ' | ' + sorted_df.d.values[i].astype(str) + ' km', font_size = 25, 
           size_hint_y = None, height=100, background_color = (0.3,0.3,0.3,1))
 
         button.bind(on_release= partial(self.open_map, sorted_df.chaves.values[i]))
