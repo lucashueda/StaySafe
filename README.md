@@ -18,11 +18,13 @@ Essencialmente o que foi usado foi o Dlib, open-cv, googlemaps e o kivy, podendo
 
  <code> conda install -c conda-forge googlemaps </code>
  
- Também consta aqui o arquivos <code>environment.yaml</code> que já cria o env com as libs, para usar use o comando:
+ Também consta aqui o arquivo <code>environment.yaml</code> que já cria o env com as libs, para usar use o comando:
  
- <code> conda env create -f environment.yml </code>
+ <code> conda env create -f environment.yaml </code>
  
- Após instalado as dependência é só rodar o arquivo <code>StaySafeApp.py</code>:
+ <code> conda activate staysafer </code>
+ 
+ Após instalado as dependências e ativado o env é só rodar o arquivo <code>StaySafeApp.py</code>:
  
  <code> python StaySafeApp.py</code>
  
