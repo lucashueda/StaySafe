@@ -1,0 +1,12 @@
+<Gerenciador>:
+  FaceCam:
+
+<FaceCam>:
+  BoxLayout:
+    orientation: 'vertical'
+    Label:
+      text: 'Teste label'
+    Button:
+      text: 'Clique aqui'
+      width: 60
+      size_hint_x: None
