@@ -1,34 +1,18 @@
 #!/usr/bin/env python
 # coding: utf-8
-
-# ## Imports
-
-# In[ ]:
-
-
 import googlemaps
 from datetime import datetime
 import requests
 
 
-# ## Support functions
-
-# In[ ]:
-
-
+# Support functions
 def geo_location():
     import geocoder
     g = geocoder.ip("me")
     return g
 
 
-# ## Beginning Code
-
-# ### Google Place Search Class
-
-# In[ ]:
-
-
+# Google Place Search Class
 with open('api_key.txt','r') as file:
     api_key = file.read()
 
@@ -109,11 +93,7 @@ class StaySafe_places:
             image.write(response.content)
 
 
-# ##  Class Tests
-
-# In[ ]:
-
-
+# Class Tests
 if __name__ == '__main__':
     test = StaySafe_places()
     places = test.get_places_rec(max_results=1,max_radius=10000)
