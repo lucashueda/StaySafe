@@ -49,7 +49,7 @@ class StaySafe_places:
         return directions_result[0]
 
     def get_places_rec(self, max_results=10, max_radius=10000):
-        places_json = []
+        places_json = {}
         places_nearby = self.get_places_nearby(max_results, max_radius)
         for place in places_nearby:
             general_info = self.get_directions_info(destiny_address=place["vicinity"])
@@ -57,23 +57,20 @@ class StaySafe_places:
             
             func_treat = (lambda place, key, default="": place[key] if key in place.keys() else default)
 
-            places_json.append(
-                dict(
-                    name=func_treat(place, "name"),
-                    address=func_treat(place, "vicinity"),
-                    coord=(
-                        place["geometry"]["location"]["lat"],
-                        place["geometry"]["location"]["lng"],
-                    ),
-                    rating=func_treat(place, "rating", "Sem nota"),
-                    distance=func_treat(func_treat(directions_info, "distance"),"text"),
-                    travel_time=func_treat(func_treat(directions_info, "duration"),"text"),
-                    place_id=func_treat(place, "place_id"),
-                    polyline=func_treat(func_treat(general_info, "overview_polyline"),"points")
-                )
+            places_json[place["name"]] = dict(
+                address=func_treat(place, "vicinity"),
+                coord=(
+                    place["geometry"]["location"]["lat"],
+                    place["geometry"]["location"]["lng"],
+                ),
+                rating=func_treat(place, "rating", "Sem nota"),
+                distance=func_treat(func_treat(directions_info, "distance"),"text"),
+                travel_time=func_treat(func_treat(directions_info, "duration"),"text"),
+                place_id=func_treat(place, "place_id"),
+                polyline=func_treat(func_treat(general_info, "overview_polyline"),"points")
             )
-            
-        return sorted(places_json, key=lambda place: place["distance"], reverse=False)
+
+        return sorted(places_json, key=lambda place: int(place["distance"].split(" ")[0]), reverse=False)
     
     def get_map(self, place_info, file_path):
         g = geo_location()
@@ -100,8 +97,9 @@ class StaySafe_places:
 if __name__ == '__main__':
     test = StaySafe_places()
     places = test.get_places_rec(max_results=1,max_radius=10000)
-    for place in places:
-        file_path = place["name"]+'.png'
+    for i in places:
+        file_path = i+'.png'
+        place = places[i]
         print(place)
         test.get_map(place_info=place, file_path=file_path)
 
