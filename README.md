@@ -1,6 +1,6 @@
 # Stay Safe: Viaje com segurança, nós te ajudamos!
 
-Projeto desenvolvido para o Hackathon CCR 2020 Shawee https://minibio.site/hackathonccr.
+Projeto desenvolvido para o Hackathon CCR 2020 Shawee http://www.grupoccr.com.br/hackathonccr/.
 
 O Stay Safe é um app que busca solucionar dois principais problemas encontrados no dia a dia de um caminhoneiro: o cansaço das viagens e o mapeamento de lugares para descanso. Dessa forma nosso aplicativo utiliza Facial Landmarks para detectar pontos de interesse do olho e assim estipular quando o usuário está sonolento, emitindo assim um alarme sonoro que o acordará e oferecerá os pontos de parada mais próximos. Adicionalmente os dados coletados (não o vídeo, dado a LGPD)  como localização mais comum de ocorrências, horário mais comuns, principais locais de descanso, etc, servirão de base para um Dashboard onde a CCR poderá usufruir para determinar a melhor abordagem de melhoria para cada caso.
 
