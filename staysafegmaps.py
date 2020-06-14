@@ -69,15 +69,9 @@ class StaySafe_places:
                 place_id=func_treat(place, "place_id"),
                 polyline=func_treat(func_treat(general_info, "overview_polyline"),"points")
             )
-<<<<<<< HEAD
 
         return places_json
 
-=======
-        places_json_ordered = {key: value for key, value in sorted(places_json.items(), key=lambda item: float(item["distance"].split()[0])}
-        return places_json_ordered
-    
->>>>>>> 539ca03919f7f6905e69f86970104bfbbbb4e341
     def get_map(self, place_info, file_path):
         g = geo_location()
         geo_latlng = str(g.latlng)[1:-1]

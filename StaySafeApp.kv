@@ -1,20 +1,33 @@
+#:import utils kivy.utils
 <SM>:
   Screen:
     name: 'menu'
     bgcolor: .9,.55,.141,1
     BoxLayout: 
-      padding: 50
+      padding: 10
       spacing: 50
       orientation: 'vertical'
       Image:
         source: 'logo.png'
+        size_hint_y: None
+        height: 400
+
       Button:
-        text: 'Monitorar direção'
+        background_normal: ''
+        background_color: utils.get_color_from_hex('#111b3e')
+        
+        text: 'Monitorar viagem'
+        font_size: 42
         on_release: root.current = 'camera_facial'
-        height: '75dp'
+        height: 150
+
+
       Button:
+        background_normal: ''
+        background_color: utils.get_color_from_hex('#111b3e')
+        font_size: 30
         text: 'Buscar paradas'
-        height: '75dp'
+        height: 100
         on_release: root.current = 'safe_places'
 
   FaceCam:
@@ -47,7 +60,9 @@
       width: 500
       height: 560
     Button:
-      text: 'Clique aqui'
+      background_normal: ''
+      background_color: utils.get_color_from_hex('#14292b')
+      text: ''
       on_release: fcam.start()
 
 <Places>:
@@ -84,5 +99,5 @@
       keep_ratio: False
       size_hint_x: None
       width: 500
-      height: 660
+      height: 530
       source: None
