@@ -10,6 +10,7 @@ Todo o app tem como base a linguagem python sendo o reconhecimento facial feito 
 
 Na pasta "deliveries" consta um vídeo do funcionamento do MVP que criamos em tempo de hackathon e o pdf explicativo da solução.
 
+Para assistir ao Pitch Comercial, acesse o seguinte link: https://www.youtube.com/watch?v=O934DP1VZzk&rel=0
 
 ## Requisitos
 
