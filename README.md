@@ -6,6 +6,11 @@ O Stay Safe é um app que busca solucionar dois principais problemas encontrados
 
 Todo o app tem como base a linguagem python sendo o reconhecimento facial feito usando open-cv e landmarks da DLib. A interface visual foi feita utilizando o framework kivy e a localização de locais de parada com a API do google maps para python. O dashboard foi feito utilizando Power BI.
 
+## Deliveries
+
+Na pasta "deliveries" consta um vídeo do funcionamento do MVP que criamos em tempo de hackathon e o pdf explicativo da solução.
+
+
 ## Requisitos
 
 Para as consultas na API do Google Maps, é necessário obter uma chave de acesso: 
